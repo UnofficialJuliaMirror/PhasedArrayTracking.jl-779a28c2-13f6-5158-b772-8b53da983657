@@ -1,41 +1,31 @@
-[![pipeline status](https://git.rwth-aachen.de/nav/Tracking.jl/badges/master/pipeline.svg)](https://git.rwth-aachen.de/nav/Tracking.jl/commits/master)
-[![coverage report](https://git.rwth-aachen.de/nav/Tracking.jl/badges/master/coverage.svg)](https://git.rwth-aachen.de/nav/Tracking.jl/commits/master)
-# Tracking
-Tracks GNSS signals.
-
-## Features
-
-* DLL/PLL Discriminators
-* Loop Filters of 1st, 2nd, and 3rd order, bilinear or boxcar
-* DLL/PLL loop functions
-* Tracking loop
-* Joined tracking of multiple GNSS systems
+[![pipeline status](https://git.rwth-aachen.de/nav/PhasedArrayTracking.jl/badges/master/pipeline.svg)](https://git.rwth-aachen.de/nav/PhasedArrayTracking.jl/commits/master)
+[![coverage report](https://git.rwth-aachen.de/nav/PhasedArrayTracking.jl/badges/master/coverage.svg)](https://git.rwth-aachen.de/nav/PhasedArrayTracking.jl/commits/master)
+# PhasedArrayTracking
+This extends [Tracking.jl](https://git.rwth-aachen.de/nav/Tracking.jl) to support phased antenna arrays.
 
 ## Getting started
 
 Install:
 ```julia
-Pkg.clone("git@git.rwth-aachen.de:nav/GNSSSignals.jl.git")
-Pkg.clone("git@git.rwth-aachen.de:nav/Tracking.jl.git")
+] add git@git.rwth-aachen.de:nav/PhasedArrayTracking.jl.git
 ```
 
 ## Usage
 
 ```julia
-    using Tracking
-    using GNSSSignals
-    function beamform(x)
-        [0.5 0.5 0.5 0.5] * x
-    end
-    inits = Initial(50, pi / 3, 0.0, 200)
-    prn = 1
-    track = init_tracking(GPSL1(), inits, 1000, 4e6, 18, 1, prn)
-    track(signal)
+using Tracking, GNSSSignals
+import Unitful: Hz
+gpsl1 = GPSL1()
+carrier_doppler = 100Hz
+code_phase = 120
+inits = Initials(gpsl1, carrier_doppler, code_phase)
+sample_freq = 2.5e6Hz
+interm_freq = 0Hz
+prn = 1
+track = init_tracking(gpsl1, inits, sample_freq, interm_freq, prn)
+beamform(x) = x[:,1] # first Antenna
+track, track_results = track(signal, beamform)
 ```
-
-## Todo
-
-Provide very early and very late when necessary.
 
 ## License
 
