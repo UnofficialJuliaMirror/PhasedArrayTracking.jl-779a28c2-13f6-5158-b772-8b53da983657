@@ -1,5 +1,6 @@
 module PhasedArrayTracking
     using DocStringExtensions, StaticArrays, Tracking
+    import Unitful: Hz, ms
     import Tracking: prompt, dump!
 
     export prompt,
