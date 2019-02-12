@@ -1,0 +1,7 @@
+name = "PhasedArrayTracking"
+uuid = "3442b705-d888-5555-b28c-fc395c0b97d1"
+
+[deps]
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+Tracking = "ddecc2a6-2edf-11e9-34b8-2387f3c0e00d"
