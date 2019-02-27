@@ -5,7 +5,7 @@ module PhasedArrayTracking
 
     export prompt,
         init_tracking,
-        Initials
+        TrackingInitials
 
     include("discriminators.jl")
     include("tracking_loop.jl")
