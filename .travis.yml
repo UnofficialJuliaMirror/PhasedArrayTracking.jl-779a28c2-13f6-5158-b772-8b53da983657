@@ -16,7 +16,7 @@ matrix:
 notifications:
   email: false
 
-before_script:
+before_install:
   - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/JuliaGNSS/GNSSSignals.jl.git")); Pkg.add(PackageSpec(url="https://github.com/JuliaGNSS/Tracking.jl.git"));'
 
 after_success:
