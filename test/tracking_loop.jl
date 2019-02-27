@@ -1,7 +1,7 @@
 @testset "Tracking" begin
-    gpsl1 = GPSL1()
-    carrier = gen_carrier.(1:24000, 50Hz, 1.2, 4e6Hz)
-    code = gen_code.(Ref(gpsl1), 1:24000, 1023e3Hz, 2.0, 4e6Hz, 1)
+    gpsl1 = Tracking.GPSL1()
+    carrier = Tracking.gen_carrier.(1:24000, 50Hz, 1.2, 4e6Hz)
+    code = Tracking.gen_code.(Ref(gpsl1), 1:24000, 1023e3Hz, 2.0, 4e6Hz, 1)
     signal = carrier .* code * [1 1 1 1]
     correlator_outputs = zeros(SMatrix{3,4,ComplexF64})
     code_shift = Tracking.CodeShift{3}(gpsl1, 4e6Hz, 0.5)
@@ -38,10 +38,10 @@ end
      num_samples = convert(Int, run_time * sample_freq)
      integration_samples = convert(Int, integration_time * sample_freq)
 
-     gps_l1 = GPSL1()
+     gps_l1 = Tracking.GPSL1()
 
      carrier = cis.(2π * (interm_freq + doppler) / sample_freq * (1:num_samples) .+ carrier_phase)
-     sampled_code = gen_code.(Ref(gps_l1), 1:num_samples, code_doppler + code_freq, code_phase, sample_freq, 1)
+     sampled_code = Tracking.gen_code.(Ref(gps_l1), 1:num_samples, code_doppler + code_freq, code_phase, sample_freq, 1)
      signal = carrier .* sampled_code * [1 1 1 1]
 
      inits = TrackingInitials(0.0Hz, carrier_phase, 0.0Hz, code_phase)

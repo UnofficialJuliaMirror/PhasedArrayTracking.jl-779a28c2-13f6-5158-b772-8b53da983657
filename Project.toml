@@ -5,12 +5,10 @@ authors = ["Soeren Zorn <soeren.zorn@nav.rwth-aachen.de>"]
 [deps]
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
-Tracking = "ddecc2a6-2edf-11e9-34b8-2387f3c0e00d"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-GNSSSignals = "8dc60a1c-2edf-11e9-3225-97f2549fcc30"
 
 [targets]
-test = ["Test", "GNSSSignals"]
+test = ["Test"]

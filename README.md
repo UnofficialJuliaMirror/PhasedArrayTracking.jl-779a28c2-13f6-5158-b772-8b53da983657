@@ -23,7 +23,7 @@ inits = TrackingInitials(gpsl1, carrier_doppler, code_phase)
 sample_freq = 2.5e6Hz
 interm_freq = 0Hz
 prn = 1
-track = init_tracking(gpsl1, inits, sample_freq, interm_freq, prn)
+track = init_tracking(Val(4), gpsl1, inits, sample_freq, interm_freq, prn) # 4 antenna channels
 beamform(x) = x[:,1] # first Antenna
-track, track_results = track(signal, beamform)
+track, track_results = track(signal, beamform) # signal must be of shape #samples x #antennas
 ```
