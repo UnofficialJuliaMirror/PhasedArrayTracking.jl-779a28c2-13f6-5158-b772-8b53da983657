@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/JuliaGNSS/Tracking.jl.svg?branch=master)](https://travis-ci.org/JuliaGNSS/Tracking.jl)
-[![Coverage Status](https://coveralls.io/repos/github/JuliaGNSS/Tracking.jl/badge.svg?branch=master)](https://coveralls.io/github/JuliaGNSS/Tracking.jl?branch=master)
+[![Build Status](https://travis-ci.org/JuliaGNSS/PhasedArrayTracking.jl.svg?branch=master)](https://travis-ci.org/JuliaGNSS/PhasedArrayTracking.jl)
+[![Coverage Status](https://coveralls.io/repos/github/JuliaGNSS/PhasedArrayTracking.jl/badge.svg?branch=master)](https://coveralls.io/github/JuliaGNSS/PhasedArrayTracking.jl?branch=master)
 
 # PhasedArrayTracking
 This extends [Tracking.jl](https://github.com/JuliaGNSS/Tracking.jl) to support phased antenna arrays.
