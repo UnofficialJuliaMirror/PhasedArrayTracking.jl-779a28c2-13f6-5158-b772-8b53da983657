@@ -16,8 +16,8 @@ matrix:
 notifications:
   email: false
 
-before_install:
-  - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/JuliaGNSS/GNSSSignals.jl.git")); Pkg.add(PackageSpec(url="https://github.com/JuliaGNSS/Tracking.jl.git"));'
+before_script:
+  - julia -e 'using Pkg; Pkg.add([PackageSpec(url="https://github.com/JuliaGNSS/GNSSSignals.jl.git"), PackageSpec(url="https://github.com/JuliaGNSS/Tracking.jl.git")])'
 
 after_success:
   - julia -e 'using Pkg; import PhasedArrayTracking; cd(joinpath(dirname(pathof(PhasedArrayTracking)), "..")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())';
