@@ -1,5 +1,5 @@
 name = "PhasedArrayTracking"
-uuid = "3442b705-d888-5555-b28c-fc395c0b97d1"
+uuid = "779a28c2-13f6-5158-b772-8b53da983657"
 authors = ["Soeren Zorn <soeren.zorn@nav.rwth-aachen.de>"]
 
 [deps]
